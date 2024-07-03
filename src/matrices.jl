@@ -11,13 +11,9 @@ function Mdiag(opt,n)
         for i=1:n
             D[i,i]=(-1.001)^i
         end
-    elseif opt==3
-        for i=1:n
-            D[i,i]=1.01^i
-        end
     else
         for i=1:n
-            D[i,i]=5*i
+            D[i,i]=1.01^i
         end
     end
     return D
