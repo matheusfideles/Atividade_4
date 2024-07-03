@@ -24,7 +24,7 @@ end
 function potenciasShift(A,x0=ones(size(A,1)), maxIt=1000,tol=1.0e-6)
     n=size(A,1); it=0
     #Um tanto de iterações do método das potencias usual para obter x0 para o método -> Com poucas iterações essa estimativa é uma merda
-    x,ray,_=potencias(A,x0,n); x1=x
+    x,ray=potencias(A,x0,n); x1=x
     while it<maxIt && det(A-ray*I)!=0
         x=(A-ray*I)\x; x=x/norm(x)
         #Critério de parada
@@ -51,7 +51,7 @@ function potenciasInv(A,x0=ones(size(A,1)),maxIt=1000,tol=1.0e-6)
 end
 
 #Função do algoritmo QR
-function autoQR(A,maxIt=10000,tol=1.0e-6)
+function autoQR(A,maxIt=1000,tol=1.0e-6)
     n=size(A,1); it=0
     vec=Matrix{Float64}(I,n,n) #Matriz dos autovetores
     while it<maxIt
